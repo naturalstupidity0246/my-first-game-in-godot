@@ -1,7 +1,11 @@
 extends Node
 
-var score = 0;
+@onready var bgmusic: AudioStreamPlayer2D = %sound
+var audio = 0;
+@onready var killzone: Area2D = %killzone
+@onready var player: CharacterBody2D = %player
 
-func add_point():
-	score += 1
-	print(score)
+func _ready() -> void:
+	audio = "res://assets/music/time_for_adventure.mp3"
+	bgmusic.stream = load(audio)
+	bgmusic.play()
